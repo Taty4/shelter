@@ -1,0 +1,106 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.u-content-width {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-inline: 10px;
+}
+
+.u-section-padding {
+  padding: 80px 0 100px;
+}
+
+.u-section-title {
+  color: var(--color-dark-l);
+  font-size: var(--fn-h2);
+  line-height: 130%;
+  letter-spacing: 6%;
+}
+
+.section-not-only {
+  background-color: #ffff00;
+  padding-top: 60px + 30px + 90px;
+  background:
+    url(../assets/img/noise_transparent.png),
+    radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
+}
+.not-only-content {
+  display: flex;
+  justify-content: center;
+  gap: 42px;
+
+  &__txt-content {
+    padding-top: 163px;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+  }
+
+  &__h1 {
+    max-width: 310px;
+    margin: 0;
+    color: var(--color-light-xl);
+
+    font-size: var(--fn-h1);
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+
+  &__main-text {
+    color: var(--color-dark-s);
+    font-family: "Arial";
+    font-size: var(--fn-main);
+    line-height: 160%;
+    letter-spacing: 0px;
+  }
+
+  &__img-content {
+    max-width: 698px;
+    width: 100%;
+  }
+}
+
+.section-about {
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+
+  &__img-content {
+    max-width: 300px;
+  }
+
+  &__text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 430px;
+  }
+
+  &__p1,
+  &__p2 {
+    color: var(--color-dark-xl);
+    font-family: "Arial";
+    font-size: var(--fn-main);
+    line-height: 160%;
+    letter-spacing: 0px;
+  }
+}
