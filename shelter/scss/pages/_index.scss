@@ -1,3 +1,5 @@
+@use "../abstarct/mixins";
+
 html {
   box-sizing: border-box;
 }
@@ -20,7 +22,11 @@ img {
 .u-content-width {
   max-width: 1280px;
   margin: 0 auto;
-  padding-inline: 10px;
+  padding-inline: clamp(
+    10px,
+    calc(10px + (40 - 10) * ((100vw - 320px) / (1280 - 320))),
+    40px
+  );
 }
 
 .u-section-padding {
@@ -32,6 +38,15 @@ img {
   font-size: var(--fn-h2);
   line-height: 130%;
   letter-spacing: 6%;
+  max-width: 400px;
+
+  &--center {
+    text-align: center;
+  }
+}
+
+.u-bgc-section {
+  background-color: var(--color-light-l);
 }
 
 .section-not-only {
@@ -90,6 +105,7 @@ img {
 
   &__text-content {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     gap: 25px;
     max-width: 430px;
@@ -102,5 +118,62 @@ img {
     font-size: var(--fn-main);
     line-height: 160%;
     letter-spacing: 0px;
+  }
+}
+
+.our-friend-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+
+  &__slider {
+    margin-top: -1.5px;
+  }
+}
+
+.slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  &__track {
+    display: flex;
+    gap: 90px;
+  }
+
+  &__button {
+    display: block;
+    width: 52px;
+    height: 52px;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    background-color: transparent;
+    background-size: 27% 11.5%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:first-child {
+      background-image: url("../assets/img/arrow-left.png");
+    }
+
+    &:last-child {
+      background-image: url("../assets/img/arrow-right.png");
+    }
+
+    @include mixins.hover-desktop {
+      background-color: var(--color-light-hover);
+      border-color: var(--color-light-hover);
+    }
+
+    &:disabled {
+      border-color: var(--color-dark-l);
+      opacity: 0.2;
+      pointer-events: none;
+    }
   }
 }
