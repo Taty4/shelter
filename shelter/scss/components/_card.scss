@@ -20,5 +20,10 @@
 
   @include mixins.hover-desktop {
     box-shadow: 0px 0px 15px 1px rgba(33, 59, 78, 0.158);
+
+    .button {
+      background-color: var(--color-light-hover);
+      border-color: var(--color-light-hover);
+    }
   }
 }

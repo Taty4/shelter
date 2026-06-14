@@ -1,8 +1,23 @@
 @use "../abstarct/mixins";
 
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
 .header {
   position: relative;
 }
+
 .header__content {
   display: flex;
   justify-content: space-between;
@@ -31,6 +46,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    text-decoration: none;
   }
 
   &__logo-title {
@@ -57,6 +73,7 @@
   }
 
   &__nav-list {
+    padding-bottom: 2px;
     list-style: none;
     display: flex;
     gap: 36px;
@@ -64,7 +81,6 @@
 
   &__nav-item {
     padding: 3px 0 4px;
-    position: relative;
 
     @include mixins.hover-desktop {
       .header__nav-link {
@@ -74,13 +90,16 @@
 
     &.is-active {
       .header__nav-link {
+        position: relative;
+        display: block;
         color: var(--color-light-s);
         pointer-events: none;
         &::after {
           content: "";
           display: block;
           position: absolute;
-
+          left: 0;
+          bottom: -6px;
           width: 100%;
           height: 3px;
           background-color: var(--color-primary);

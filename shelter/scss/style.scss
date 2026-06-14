@@ -8,6 +8,7 @@
 // Components
 @use "./components/button";
 @use "./components/card";
+@use "./components/circle-button";
 
 // Layout
 @use "./layout/header";
@@ -16,5 +17,4 @@
 @use "./pages/index";
 @use "./pages/pets";
 
-// Layout
 @use "./layout/footer";

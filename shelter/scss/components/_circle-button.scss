@@ -16,6 +16,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 115%;
+  letter-spacing: 6%;
 
   @include mixins.hover-desktop {
     background-color: var(--color-light-hover);

@@ -1,18 +1,6 @@
 @use "../abstarct/mixins";
 @use "../components/circle-button";
-html {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-  font-weight: 400;
-}
+@use "../abstarct/functions";
 
 .img {
   width: 100%;
@@ -43,7 +31,6 @@ html {
 }
 
 .u-section-title {
-  color: var(--color-dark-l);
   font-size: var(--fn-h2);
   line-height: 130%;
   letter-spacing: 6%;
@@ -69,10 +56,35 @@ html {
   justify-content: center;
   gap: 42px;
   padding-top: 60px + 30px + 90px;
+  padding-top: clamp(
+    150px,
+    calc(150px + (180 - 150) * ((100vw - 768px) / (1280 - 768))),
+    180px
+  );
+
+  @media (max-width: 830px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+
+    &__img-content {
+      max-width: 569px;
+      align-self: flex-end;
+    }
+
+    &__button {
+      align-self: center;
+    }
+  }
 
   &__txt-content {
-    padding-top: 163px;
+    padding-top: clamp(
+      0px,
+      calc(0px + (163 - 0) * ((100vw - 768px) / (1280 - 768))),
+      163px
+    );
     max-width: 460px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 42px;
@@ -91,8 +103,7 @@ html {
 
   &__main-text {
     color: var(--color-dark-s);
-    font-family: "Arial";
-    font-size: var(--fn-main);
+    font-family: "Arial", serif;
     line-height: 160%;
     letter-spacing: 0px;
   }
@@ -107,9 +118,17 @@ html {
   display: flex;
   justify-content: center;
   gap: 120px;
+  gap: functions.fluid-value-df(1280, 768, 120, 80);
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: functions.fluid-value-df(768, 320, 80, 42);
+  }
 
   &__img-content {
     max-width: 300px;
+    width: 100%;
   }
 
   &__text-content {
@@ -118,13 +137,13 @@ html {
     flex-direction: column;
     gap: 25px;
     max-width: 430px;
+    width: 100%;
   }
 
   &__p1,
   &__p2 {
     color: var(--color-dark-xl);
-    font-family: "Arial";
-    font-size: var(--fn-main);
+    font-family: "Arial", serif;
     line-height: 160%;
     letter-spacing: 0px;
   }
@@ -141,15 +160,30 @@ html {
 .slider {
   display: flex;
   justify-content: space-between;
+  gap: 12px;
   align-items: center;
   width: 100%;
 
+  &__visible {
+    overflow-x: hidden;
+  }
+
   &__track {
     display: flex;
-    gap: 90px;
+    gap: functions.fluid-value-df(1280, 768, 90, 40);
+
+    @media (max-width: 768px) {
+      gap: functions.fluid-value-df(768, 320, 40, 30);
+    }
+  }
+
+  &__item {
+    flex-shrink: 0;
   }
 
   &__button {
+    flex-shrink: 0;
+
     &:first-child {
       background-image: url("../assets/img/arrow-left.png");
     }
@@ -171,12 +205,11 @@ html {
   }
 
   &__list {
-    max-width: 1026px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     row-gap: 55px;
-    column-gap: 119px;
+    column-gap: functions.fluid-value-df(1280, 768, 120, 60);
   }
 
   &__list-item {
@@ -187,10 +220,28 @@ html {
   }
 
   &__list-item-text {
-    color: var(--color-dark-l);
     font-size: var(--fn-card);
     line-height: 115%;
     letter-spacing: 6%;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    &__list {
+      row-gap: functions.fluid-value-df(768, 320, 55, 30);
+      column-gap: functions.fluid-value-df(768, 320, 60, 30);
+    }
+
+    &__list-item {
+      max-width: functions.fluid-value-df(768, 320, 170, 130);
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 320px) {
+    &__list {
+      justify-content: space-between;
+    }
   }
 }
 
@@ -211,8 +262,6 @@ html {
     }
 
     &__subtitle {
-      color: var(--color-dark-l);
-      font-size: var(--fn-main);
       line-height: 110%;
       letter-spacing: 6%;
     }
@@ -224,6 +273,12 @@ html {
       gap: 15px;
       background-color: var(--color-primary);
       border-radius: 9px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+
+      @include mixins.hover-desktop {
+        background-color: var(--color-light-hover);
+      }
     }
 
     &__credit-card-number {
@@ -236,11 +291,15 @@ html {
     &__info {
       max-width: 380px;
       color: var(--color-dark-m);
-      font-family: "Arial";
+      font-family: "Arial", serif;
       font-style: italic;
       font-size: 12px;
       line-height: 18px;
       letter-spacing: 0px;
     }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
   }
 }

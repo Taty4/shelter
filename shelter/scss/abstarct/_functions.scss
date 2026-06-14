@@ -1,0 +1,5 @@
+@function fluid-value-df($max-screen, $min-screen, $max-value, $min-value) {
+  $k: ($max-value - $min-value) / ($max-screen - $min-screen);
+  $b: $min-value - $k * $min-screen;
+  @return clamp(#{$min-value}px, #{$k * 100}vw + #{$b}px, #{$max-value}px);
+}

@@ -3,16 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
     <title>Shelter</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="./favicon-32x32.png?v=4"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./favicon-16x16.png?v=4"
+      sizes="16x16"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <div class="header u-content-width">
       <header class="header__content header__content--absolute">
-        <div class="header__logo">
+        <a class="header__logo" href="./index.html">
           <p class="header__logo-title">Cozy House</p>
           <p class="header__logo-subtitle">Shelter for pets in Boston</p>
-        </div>
+        </a>
         <nav class="header__nav">
           <ul class="header__nav-list">
             <li class="header__nav-item is-active">
@@ -43,9 +56,9 @@
                 extremely wide and open heart. He or she will love you more than
                 anybody else in the world, you will see!
               </p>
-              <button class="not-only-content__button button">
+              <a class="not-only-content__button button" href="#friends">
                 Make a friend
-              </button>
+              </a>
             </div>
             <div class="not-only-content__img-content">
               <img
@@ -80,9 +93,8 @@
             would hardly ever leave them alone.
           </p>
         </div>
-        <!-- Тут контент -->
       </section>
-      <section class="section-our-friend u-bgc-section">
+      <section id="friends" class="section-our-friend u-bgc-section">
         <div class="our-friend-content u-content-width u-section-padding">
           <h2
             class="our-friend-content__h2 u-section-title u-section-title--center"
@@ -132,8 +144,9 @@
 
             <button class="slider__button circle-button"></button>
           </div>
-          <button class="button button--width-261">Get to know the rest</button>
-          <!-- Тут контент -->
+          <a class="button button--width-261" href="./pets.html"
+            >Get to know the rest</a
+          >
         </div>
       </section>
       <section id="help" class="section-help u-content-width u-section-padding">
@@ -214,7 +227,6 @@
             <p class="section-help__list-item-text">Sleeping areas</p>
           </div>
         </div>
-        <!-- Тут контент -->
       </section>
       <section class="section-addition u-bgc-section">
         <div
@@ -230,7 +242,7 @@
             <span class="addition-text__subtitle"
               >Name of the bank / Type of bank account</span
             >
-            <div class="addition-text__credit-card">
+            <a href="#" class="addition-text__credit-card">
               <svg
                 viewBox="0 0 30 23"
                 xmlns="http://www.w3.org/2000/svg"
@@ -250,7 +262,7 @@
               <p class="addition-text__credit-card-number">
                 8380 2880 8028 8791 7435
               </p>
-            </div>
+            </a>
             <span class="addition-text__info"
               >Legal information and lorem ipsum dolor sit amet, consectetur
               adipiscing elit. Maecenas a ipsum at libero sagittis dignissim sed
@@ -258,7 +270,6 @@
               et malesuada fames ac ante ipsum primis in faucibus.</span
             >
           </div>
-          <!-- Тут контент -->
         </div>
       </section>
     </main>
