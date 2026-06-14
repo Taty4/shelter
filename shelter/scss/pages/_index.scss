@@ -37,7 +37,8 @@ html {
 }
 
 .u-section-padding {
-  padding: 80px 0 100px;
+  padding-top: 80px;
+  padding-bottom: 100px;
 }
 
 .u-section-title {
@@ -57,16 +58,16 @@ html {
 }
 
 .section-not-only {
-  background-color: #ffff00;
-  padding-top: 60px + 30px + 90px;
   background:
     url(../assets/img/noise_transparent.png),
     radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 }
+
 .not-only-content {
   display: flex;
   justify-content: center;
   gap: 42px;
+  padding-top: 60px + 30px + 90px;
 
   &__txt-content {
     padding-top: 163px;
@@ -134,10 +135,6 @@ html {
   align-items: center;
   justify-content: center;
   gap: 60px;
-
-  &__slider {
-    margin-top: -1.5px;
-  }
 }
 
 .slider {

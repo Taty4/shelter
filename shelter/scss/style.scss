@@ -5,14 +5,16 @@
 @use "./base/normalize";
 @use "./base/typography";
 
+// Components
+@use "./components/button";
+@use "./components/card";
+
 // Layout
 @use "./layout/header";
-@use "./layout/footer";
 
 // Pages
 @use "./pages/index";
 @use "./pages/pets";
 
-// Components
-@use "./components/button";
-@use "./components/card";
+// Layout
+@use "./layout/footer";
