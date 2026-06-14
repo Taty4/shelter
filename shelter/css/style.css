@@ -433,10 +433,17 @@ html {
   font-weight: 400;
 }
 
-img {
+.img {
   width: 100%;
   height: auto;
   display: block;
+}
+.img--height-60 {
+  max-width: 60px;
+  height: 60px;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .u-content-width {
@@ -576,6 +583,37 @@ img {
   border-color: var(--color-dark-l);
   opacity: 0.2;
   pointer-events: none;
+}
+
+.section-help {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+.section-help__title {
+  max-width: 350px;
+}
+.section-help__list {
+  max-width: 1026px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 55px;
+  -moz-column-gap: 119px;
+       column-gap: 119px;
+}
+.section-help__list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+.section-help__list-item-text {
+  color: var(--color-dark-l);
+  font-size: var(--fn-card);
+  line-height: 115%;
+  letter-spacing: 6%;
 }
 
 .button {
