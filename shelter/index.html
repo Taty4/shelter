@@ -7,8 +7,8 @@
     <title>Shelter</title>
   </head>
   <body>
-    <header class="header u-content-width">
-      <div class="header__content">
+    <div class="header u-content-width">
+      <header class="header__content header__content--absolute">
         <div class="header__logo">
           <p class="header__logo-title">Cozy House</p>
           <p class="header__logo-subtitle">Shelter for pets in Boston</p>
@@ -19,18 +19,18 @@
               <a href="" class="header__nav-link">About the shelter</a>
             </li>
             <li class="header__nav-item">
-              <a href="" class="header__nav-link">Our pets</a>
+              <a href="./pets.html" class="header__nav-link">Our pets</a>
             </li>
             <li class="header__nav-item">
-              <a href="" class="header__nav-link">Help the shelter</a>
+              <a href="#help" class="header__nav-link">Help the shelter</a>
             </li>
             <li class="header__nav-item">
-              <a href="" class="header__nav-link">Contacts</a>
+              <a href="#footer" class="header__nav-link">Contacts</a>
             </li>
           </ul>
         </nav>
-      </div>
-    </header>
+      </header>
+    </div>
 
     <main class="main-content">
       <section class="section-not-only">
@@ -92,7 +92,7 @@
           </h2>
 
           <div class="our-friend-content__slider slider">
-            <button class="slider__button"></button>
+            <button class="slider__button circle-button"></button>
 
             <div class="slider__visible">
               <div class="slider__track">
@@ -130,13 +130,13 @@
               </div>
             </div>
 
-            <button class="slider__button"></button>
+            <button class="slider__button circle-button"></button>
           </div>
           <button class="button button--width-261">Get to know the rest</button>
           <!-- Тут контент -->
         </div>
       </section>
-      <section class="section-help u-content-width u-section-padding">
+      <section id="help" class="section-help u-content-width u-section-padding">
         <h2 class="section-help__title u-section-title u-section-title--center">
           How you can help our shelter
         </h2>
@@ -263,7 +263,7 @@
       </section>
     </main>
 
-    <footer class="footer">
+    <footer id="footer" class="footer">
       <div class="footer__content u-content-width">
         <div class="footer__block">
           <h2 class="footer__title footer__title--margin-42 u-section-title">

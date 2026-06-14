@@ -93,7 +93,7 @@ abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -192,21 +192,21 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type=button],
-[type=reset],
-[type=submit] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
-     -moz-appearance: button;
-          appearance: button;
+  -moz-appearance: button;
+  appearance: button;
 }
 
 /**
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -215,9 +215,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring {
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
   outline: 1px dotted currentColor;
 }
 
@@ -261,8 +261,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type=checkbox],
-[type=radio] {
+[type="checkbox"],
+[type="radio"] {
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
@@ -270,8 +270,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -279,9 +279,9 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type=search] {
+[type="search"] {
   -moz-appearance: textfield;
-       appearance: textfield; /* Современный стандарт */
+  appearance: textfield; /* Современный стандарт */
   -webkit-appearance: textfield; /* Для поддержки старых версий Safari */
   outline-offset: -2px;
 }
@@ -289,7 +289,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type=search]::-webkit-search-decoration {
+[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -346,6 +346,13 @@ template {
   src: url("../assets/fonts/georgia-regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arial";
+  src: url("../assets/fonts/arial-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
   font-display: swap;
 }
 body {
@@ -412,16 +419,23 @@ body {
 }
 
 .header__content {
-  position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 60px;
+}
+.header__content--absolute {
+  position: absolute;
   top: 30px;
   left: 0;
   right: 0;
   padding-inline: 40px;
   width: 100%;
+}
+.header__content--static {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  box-sizing: content-box;
 }
 
 .header__logo {
@@ -435,6 +449,9 @@ body {
   font-size: var(--fn-logo);
   letter-spacing: 6%;
 }
+.header__logo-title--dark {
+  color: var(--color-dark-l);
+}
 .header__logo-subtitle {
   color: var(--color-light-xl);
   font-family: "Arial";
@@ -442,6 +459,9 @@ body {
   letter-spacing: 10%;
   line-height: 15px;
   text-align: right;
+}
+.header__logo-subtitle--dark {
+  color: var(--color-dark-xl);
 }
 .header__nav-list {
   list-style: none;
@@ -459,6 +479,7 @@ body {
 }
 .header__nav-item.is-active .header__nav-link {
   color: var(--color-light-s);
+  pointer-events: none;
 }
 .header__nav-item.is-active .header__nav-link::after {
   content: "";
@@ -468,6 +489,17 @@ body {
   height: 3px;
   background-color: var(--color-primary);
 }
+.header__nav-item--dark.is-active .header__nav-link {
+  color: var(--color-dark-xl);
+}
+.header__nav-item--dark .header__nav-link {
+  color: var(--color-dark-l);
+}
+@media (hover: hover) and (pointer: fine) {
+  .header__nav-item--dark:hover .header__nav-link {
+    color: var(--color-dark-xl);
+  }
+}
 .header__nav-link {
   font-family: "Arial", sans-serif;
   font-size: var(--fn-main);
@@ -476,8 +508,42 @@ body {
   transition: color 0.2s;
 }
 
+.circle-button {
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  background-color: transparent;
+  background-size: 27% 11.5%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: 0.3s;
+  color: var(--color-dark-xl);
+  font-size: var(--fn-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (hover: hover) and (pointer: fine) {
+  .circle-button:hover {
+    background-color: var(--color-light-hover);
+    border-color: var(--color-light-hover);
+  }
+}
+.circle-button.is-active {
+  background-color: var(--color-primary);
+  pointer-events: none;
+}
+.circle-button:disabled {
+  border-color: var(--color-dark-xl);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -499,7 +565,7 @@ html {
   height: 60px;
   width: 100%;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .u-content-width {
@@ -519,6 +585,7 @@ html {
   line-height: 130%;
   letter-spacing: 6%;
   max-width: 400px;
+  margin: 0;
 }
 .u-section-title--center {
   text-align: center;
@@ -529,7 +596,9 @@ html {
 }
 
 .section-not-only {
-  background: url(../assets/img/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
+  background:
+    url(../assets/img/noise_transparent.png),
+    radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 }
 
 .not-only-content {
@@ -581,7 +650,8 @@ html {
   gap: 25px;
   max-width: 430px;
 }
-.section-about__p1, .section-about__p2 {
+.section-about__p1,
+.section-about__p2 {
   color: var(--color-dark-xl);
   font-family: "Arial";
   font-size: var(--fn-main);
@@ -607,35 +677,11 @@ html {
   display: flex;
   gap: 90px;
 }
-.slider__button {
-  display: block;
-  width: 52px;
-  height: 52px;
-  border: 2px solid var(--color-primary);
-  border-radius: 50%;
-  background-color: transparent;
-  background-size: 27% 11.5%;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-  transition: 0.3s;
-}
 .slider__button:first-child {
   background-image: url("../assets/img/arrow-left.png");
 }
 .slider__button:last-child {
   background-image: url("../assets/img/arrow-right.png");
-}
-@media (hover: hover) and (pointer: fine) {
-  .slider__button:hover {
-    background-color: var(--color-light-hover);
-    border-color: var(--color-light-hover);
-  }
-}
-.slider__button:disabled {
-  border-color: var(--color-dark-l);
-  opacity: 0.2;
-  pointer-events: none;
 }
 
 .section-help {
@@ -654,7 +700,7 @@ html {
   flex-wrap: wrap;
   row-gap: 55px;
   -moz-column-gap: 119px;
-       column-gap: 119px;
+  column-gap: 119px;
 }
 .section-help__list-item {
   display: flex;
@@ -714,8 +760,34 @@ html {
   letter-spacing: 0px;
 }
 
+.main-pets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+.main-pets__title {
+  max-width: 400px;
+}
+.main-pets__cards-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  -moz-column-gap: 40px;
+  column-gap: 40px;
+  row-gap: 30px;
+}
+.main-pets__pagination {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
 .footer {
-  background: url(../assets/img/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
+  background:
+    url(../assets/img/noise_transparent.png),
+    radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 }
 .footer__content {
   padding-bottom: 0;
@@ -723,7 +795,7 @@ html {
   display: flex;
   justify-content: space-between;
   -moz-column-gap: 160px;
-       column-gap: 160px;
+  column-gap: 160px;
   row-gap: 65px;
 }
 .footer__title {
@@ -779,4 +851,4 @@ html {
   .footer__item:hover .footer__link {
     color: var(--color-light-xl);
   }
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */

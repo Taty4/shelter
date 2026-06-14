@@ -1,0 +1,27 @@
+@use "../components/circle-button";
+
+.main-pets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+
+  &__title {
+    max-width: 400px;
+  }
+
+  &__cards-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    row-gap: 30px;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+}

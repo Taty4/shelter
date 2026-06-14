@@ -1,7 +1,8 @@
 @use "../abstarct/mixins";
-
+@use "../components/circle-button";
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -47,7 +48,7 @@ html {
   line-height: 130%;
   letter-spacing: 6%;
   max-width: 400px;
-
+  margin: 0;
   &--center {
     text-align: center;
   }
@@ -149,35 +150,12 @@ html {
   }
 
   &__button {
-    display: block;
-    width: 52px;
-    height: 52px;
-    border: 2px solid var(--color-primary);
-    border-radius: 50%;
-    background-color: transparent;
-    background-size: 27% 11.5%;
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-    transition: 0.3s;
-
     &:first-child {
       background-image: url("../assets/img/arrow-left.png");
     }
 
     &:last-child {
       background-image: url("../assets/img/arrow-right.png");
-    }
-
-    @include mixins.hover-desktop {
-      background-color: var(--color-light-hover);
-      border-color: var(--color-light-hover);
-    }
-
-    &:disabled {
-      border-color: var(--color-dark-l);
-      opacity: 0.2;
-      pointer-events: none;
     }
   }
 }
