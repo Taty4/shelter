@@ -12,22 +12,32 @@
     height: 60px;
     width: 100%;
     object-fit: contain;
+
+    @media (max-width: 420px) {
+      max-width: 50px;
+      height: 50px;
+    }
   }
 }
 
 .u-content-width {
   max-width: 1280px;
   margin: 0 auto;
-  padding-inline: clamp(
-    10px,
-    calc(10px + (40 - 10) * ((100vw - 320px) / (1280 - 320))),
-    40px
-  );
+  padding-inline: functions.fluid-value-df(1280, 768, 40, 30);
+
+  @media (max-width: 768px) {
+    padding-inline: functions.fluid-value-df(768, 320, 30, 10);
+  }
 }
 
 .u-section-padding {
   padding-top: 80px;
   padding-bottom: 100px;
+
+  @media (max-width: 768px) {
+    padding-top: functions.fluid-value-df(768, 320, 80, 42);
+    padding-bottom: functions.fluid-value-df(768, 320, 100, 42);
+  }
 }
 
 .u-section-title {
@@ -37,6 +47,14 @@
   max-width: 400px;
   margin: 0;
   &--center {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    font-size: functions.fluid-value-df(768, 320, 35, 25);
+  }
+
+  @media (max-width: 420px) {
     text-align: center;
   }
 }
@@ -62,21 +80,6 @@
     180px
   );
 
-  @media (max-width: 830px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 100px;
-
-    &__img-content {
-      max-width: 569px;
-      align-self: flex-end;
-    }
-
-    &__button {
-      align-self: center;
-    }
-  }
-
   &__txt-content {
     padding-top: clamp(
       0px,
@@ -94,7 +97,6 @@
     max-width: 310px;
     margin: 0;
     color: var(--color-light-xl);
-
     font-size: var(--fn-h1);
     line-height: 130%;
     letter-spacing: 0%;
@@ -112,6 +114,48 @@
     max-width: 698px;
     width: 100%;
   }
+
+  @media (max-width: 830px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+
+    &__button {
+      align-self: center;
+    }
+
+    &__img-content {
+      max-width: 569px;
+      align-self: flex-end;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__h1 {
+      font-size: functions.fluid-value-df(768, 320, 44, 25);
+    }
+  }
+
+  @media (max-width: 420px) {
+    gap: 105px;
+
+    &__h1 {
+      align-self: center;
+      text-align: center;
+      max-width: 240px;
+      letter-spacing: 6%;
+    }
+
+    &__main-text {
+      width: 100%;
+      text-align: center;
+    }
+
+    &__img-content {
+      max-width: 260px;
+      align-self: flex-end;
+    }
+  }
 }
 
 .section-about {
@@ -119,12 +163,6 @@
   justify-content: center;
   gap: 120px;
   gap: functions.fluid-value-df(1280, 768, 120, 80);
-
-  @media (max-width: 768px) {
-    flex-direction: column-reverse;
-    align-items: center;
-    gap: functions.fluid-value-df(768, 320, 80, 42);
-  }
 
   &__img-content {
     max-width: 300px;
@@ -147,6 +185,33 @@
     line-height: 160%;
     letter-spacing: 0px;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: functions.fluid-value-df(768, 320, 80, 42);
+  }
+
+  @media (max-width: 420px) {
+    &__text-content {
+      max-width: 270px;
+      gap: 22px;
+    }
+
+    &__p1,
+    &__p2 {
+      letter-spacing: 0px;
+      text-align: justify;
+    }
+
+    &__p1 {
+      margin-top: 2px;
+    }
+
+    &__img-content {
+      max-width: 260px;
+    }
+  }
 }
 
 .our-friend-content {
@@ -155,6 +220,10 @@
   align-items: center;
   justify-content: center;
   gap: 60px;
+
+  @media (max-width: 768px) {
+    gap: functions.fluid-value-df(768, 320, 59, 41);
+  }
 }
 
 .slider {
@@ -170,15 +239,7 @@
 
   &__track {
     display: flex;
-    gap: functions.fluid-value-df(1280, 768, 90, 40);
-
-    @media (max-width: 768px) {
-      gap: functions.fluid-value-df(768, 320, 40, 30);
-    }
-  }
-
-  &__item {
-    flex-shrink: 0;
+    gap: functions.fluid-value-df(1280, 830, 90, 20);
   }
 
   &__button {
@@ -192,6 +253,46 @@
       background-image: url("../assets/img/arrow-right.png");
     }
   }
+
+  @media (max-width: 860px) {
+    &__track {
+      gap: functions.fluid-value-df(830, 768, 60, 30);
+    }
+
+    &__item:nth-child(3) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__track {
+      gap: functions.fluid-value-df(768, 320, 40, 30);
+    }
+  }
+
+  @media (max-width: 650px) {
+    &__item {
+      flex-shrink: 0;
+
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 420px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 80px;
+    row-gap: 20px;
+
+    &__visible {
+      max-width: 270px;
+      order: -1;
+      width: 100%;
+      flex-grow: 1;
+    }
+  }
 }
 
 .section-help {
@@ -202,6 +303,7 @@
 
   &__title {
     max-width: 350px;
+    width: 100%;
   }
 
   &__list {
@@ -227,7 +329,11 @@
   }
 
   @media (max-width: 768px) {
+    gap: functions.fluid-value-df(768, 320, 60, 42);
+
     &__list {
+      justify-content: space-between;
+      max-width: 630px;
       row-gap: functions.fluid-value-df(768, 320, 55, 30);
       column-gap: functions.fluid-value-df(768, 320, 60, 30);
     }
@@ -236,11 +342,22 @@
       max-width: functions.fluid-value-df(768, 320, 170, 130);
       width: 100%;
     }
+
+    &__list-item-text {
+      font-size: functions.fluid-value-df(768, 320, 20, 15);
+    }
   }
 
-  @media (max-width: 320px) {
+  @media (max-width: 420px) {
+    &__title {
+      max-width: 225px;
+    }
+
     &__list {
-      justify-content: space-between;
+      max-width: calc(260px + functions.fluid-value-df(768, 320, 60, 30));
+    }
+    &__list-item {
+      gap: 20px;
     }
   }
 }
@@ -301,5 +418,43 @@
 
   @media (max-width: 768px) {
     flex-direction: column-reverse;
+    gap: functions.fluid-value-df(768, 320, 60, 42);
+  }
+
+  @media (max-width: 420px) {
+    .addition-text__title {
+      max-width: 220px;
+      text-align: center;
+      align-self: center;
+    }
+
+    .addition-text__subtitle {
+      text-align: center;
+      align-self: center;
+      line-height: 160%;
+      letter-spacing: 0px;
+    }
+
+    .addition-text__credit-card {
+      max-width: 281px;
+      align-self: center;
+      align-items: center;
+    }
+
+    .addition-text__credit-card-number {
+      font-size: 15px;
+      line-height: 110%;
+      letter-spacing: 6%;
+    }
+
+    .addition-text__info {
+      align-items: center;
+      max-width: 281px;
+      text-align: justify;
+    }
+
+    .section_addition__image-content {
+      max-width: 260px;
+    }
   }
 }
