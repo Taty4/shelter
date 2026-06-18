@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: functions.fluid-value-df(1280, 768, 60, 30);
 
   &__title {
     max-width: 400px;
@@ -24,9 +24,33 @@
     display: flex;
     justify-content: center;
     gap: 20px;
+  }
+  @media (max-width: 768px) {
+    padding-top: functions.fluid-value-df(768, 320, 80, 42);
+    padding-bottom: functions.fluid-value-df(768, 320, 76, 42);
 
-    @media (max-width: 768px) {
+    &__pagination {
       gap: functions.fluid-value-df(768, 320, 20, 10);
+      margin-top: 13px;
+    }
+
+    .card:nth-child(7),
+    .card:nth-child(8) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 420px) {
+    gap: 42px;
+
+    .card:nth-child(4),
+    .card:nth-child(5),
+    .card:nth-child(6) {
+      display: none;
+    }
+
+    &__pagination {
+      margin-top: 2px;
     }
   }
 }

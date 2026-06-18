@@ -45,6 +45,11 @@ html {
       padding-inline: functions.fluid-value-df(768, 320, 30, 20);
     }
   }
+  @media (max-width: 768px) {
+    &--static {
+      padding-inline: functions.fluid-value-df(768, 320, 30, 20);
+    }
+  }
 }
 
 .header {
