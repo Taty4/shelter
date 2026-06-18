@@ -1,6 +1,10 @@
 @use "../components/circle-button";
 @use "../abstarct/functions";
 
+body {
+  position: relative;
+}
+
 .main-pets {
   display: flex;
   flex-direction: column;
