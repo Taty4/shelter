@@ -806,8 +806,8 @@ html {
     justify-content: space-between;
     max-width: 630px;
     row-gap: clamp(30px, 5.5803571429vw + 12.1428571429px, 55px);
-    -moz-column-gap: clamp(30px, 6.6964285714vw + 8.5714285714px, 60px);
-         column-gap: clamp(30px, 6.6964285714vw + 8.5714285714px, 60px);
+    -moz-column-gap: clamp(10px, 33.7837837838vw + -199.4594594595px, 60px);
+         column-gap: clamp(10px, 33.7837837838vw + -199.4594594595px, 60px);
   }
   .section-help__list-item {
     max-width: clamp(130px, 8.9285714286vw + 101.4285714286px, 170px);
@@ -822,7 +822,7 @@ html {
     max-width: 225px;
   }
   .section-help__list {
-    max-width: calc(260px + clamp(30px, 6.6964285714vw + 8.5714285714px, 60px));
+    max-width: 290px;
   }
   .section-help__list-item {
     gap: 20px;

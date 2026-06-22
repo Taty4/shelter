@@ -244,7 +244,7 @@
       justify-content: space-between;
       max-width: 630px;
       row-gap: functions.fluid-value-df(768, 320, 55, 30);
-      column-gap: functions.fluid-value-df(768, 320, 60, 30);
+      column-gap: functions.fluid-value-df(768, 620, 60, 10);
     }
 
     &__list-item {
@@ -263,8 +263,9 @@
     }
 
     &__list {
-      max-width: calc(260px + functions.fluid-value-df(768, 320, 60, 30));
+      max-width: 290px;
     }
+
     &__list-item {
       gap: 20px;
     }
