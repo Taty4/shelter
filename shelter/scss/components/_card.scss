@@ -11,6 +11,10 @@
   transition: 0.3s;
   cursor: pointer;
 
+  .img {
+    border-radius: 9px;
+  }
+
   &__pet-name {
     color: var(--color-dark-l);
     font-size: var(--fn-card);
