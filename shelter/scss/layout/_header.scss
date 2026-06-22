@@ -15,6 +15,25 @@ html {
   font-weight: 400;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(38, 36, 37, 0.555);
+  display: none;
+}
+
+.overlay.is-open {
+  display: block;
+  z-index: 10;
+}
+
 .header {
   background:
     url(../assets/img/noise_transparent.png),
@@ -69,14 +88,11 @@ html {
   }
 
   &__nav-list {
-    transition: translateX 0.5s;
-  }
-
-  &__nav-list {
     padding-bottom: 2px;
     list-style: none;
     display: flex;
     gap: 36px;
+    transition: transform 0.5s ease;
   }
 
   &__nav-item {
@@ -140,6 +156,7 @@ html {
       top: 0;
       right: 0;
       overflow-x: hidden;
+      z-index: 100;
     }
 
     &__nav-list {
@@ -246,6 +263,7 @@ html {
 
   @media (max-width: 767px) {
     display: block;
+    z-index: 200;
   }
 }
 
