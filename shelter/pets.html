@@ -69,99 +69,7 @@
           Our friends who <br />
           are looking for a house
         </h1>
-        <div class="main-pets__cards-wrapper">
-          <!-- <div class="card">
-            <img
-              class="img"
-              src="./assets/img/pets-katrine.png"
-              alt="
-Cute black cat looking at you"
-            />
-            <p class="card__pet-name">Katrine</p>
-            <button class="button button--width-187 button--bgc-transparent">
-              Learn more
-            </button>
-          </div>
-          <div class="card">
-            <img
-              class="img"
-              src="./assets/img/pets-jennifer.png"
-              alt="A cute puppy is sitting"
-            />
-            <p class="card__pet-name">Jennifer</p>
-            <button class="button button--width-187 button--bgc-transparent">
-              Learn more
-            </button>
-          </div>
-          <div class="card">
-            <img
-              class="img"
-              src="./assets/img/pets-woody.png"
-              alt="Golden Retriever looks on happily"
-            />
-            <p class="card__pet-name">Woody</p>
-            <button class="button button--width-187 button--bgc-transparent">
-              Learn more
-            </button>
-          </div>
-          <div class="card">
-            <img
-              class="img"
-              src="./assets/img/pets-sofia.png"
-              alt="A very small dog lies on your hand"
-            />
-            <p class="card__pet-name">Sophia</p>
-            <button class="button button--width-187 button--bgc-transparent">
-              Learn more
-            </button>
-          </div>
-          <div class="card">
-            <img
-              class="img"
-              src="./assets/img/pets-timmy.png"
-              alt="A serious british cat"
-            />
-            <p class="card__pet-name">Timmy</p>
-            <button class="button button--width-187 button--bgc-transparent">
-              Learn more
-            </button>
-          </div>
-          <div class="card">
-            <img
-              class="img"
-              src="./assets/img/pet-charly.png"
-              alt="
-The dog is lying on the sofa and looking forward sadly."
-            />
-            <p class="card__pet-name">Charly</p>
-            <button class="button button--width-187 button--bgc-transparent">
-              Learn more
-            </button>
-          </div>
-          <div class="card">
-            <img
-              class="img"
-              src="./assets/img/pets-scarlet.png"
-              alt="
-A very cute dog is waiting for its owner."
-            />
-            <p class="card__pet-name">Scarlett</p>
-            <button class="button button--width-187 button--bgc-transparent">
-              Learn more
-            </button>
-          </div>
-          <div class="card">
-            <img
-              class="img"
-              src="./assets/img/pets-fredii.png"
-              alt="A beautiful cat with an unusual coloring"
-            />
-            <p class="card__pet-name">Freddie</p>
-            <button class="button button--width-187 button--bgc-transparent">
-              Learn more
-            </button>
-          </div> -->
-        </div>
+        <div class="main-pets__cards-wrapper"></div>
         <div class="main-pets__pagination">
           <button class="circle-button first" disabled>&lt;&lt;</button>
           <button class="circle-button prev" disabled>&lt;</button>
@@ -217,6 +125,38 @@ A very cute dog is waiting for its owner."
         </div>
       </div>
     </footer>
+    <dialog class="modal">
+      <button class="modal__btn-close circle-button">&#10006;</button>
+      <div class="modal-content">
+        <div class="modal-content__image"></div>
+        <div class="modal-content__wrapper-text">
+          <h3 class="modal-content__name"></h3>
+          <p class="modal-content__type">
+            <span class="modal-content__type--type"></span> -
+            <span class="modal-content__type--breed"></span>
+          </p>
+          <p class="modal-content__information"></p>
+          <ul class="modal-content__list">
+            <li class="modal-content__list-item">
+              <span class="bold-text">Age: </span>
+              <span data-info="age"></span>
+            </li>
+            <li class="modal-content__list-item">
+              <span class="bold-text">Inoculations: </span>
+              <span data-info="inoculations"></span>
+            </li>
+            <li class="modal-content__list-item">
+              <span class="bold-text">Diseases: </span>
+              <span data-info="diseases"></span>
+            </li>
+            <li class="modal-content__list-item">
+              <span class="bold-text">Parasites: </span>
+              <span data-info="parasites"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </dialog>
     <script type="module" src="./js/pets.js"></script>
   </body>
 </html>

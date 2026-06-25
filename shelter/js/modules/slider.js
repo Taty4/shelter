@@ -1,4 +1,7 @@
+import { initModal } from "./modal.js";
+
 export function initSlider() {
+  const visible = document.querySelector(".slider__visible");
   const sliderContainer = document.querySelector(".slider__track");
   const left = document.querySelector(".arrow-left");
   const right = document.querySelector(".arrow-right");
@@ -16,6 +19,7 @@ export function initSlider() {
       left.addEventListener("click", () => {
         if (isAnimation) return;
         isAnimation = true;
+        visible.style.overflowX = "hidden";
 
         sliderContainer.style.transition = "none";
 
@@ -30,6 +34,7 @@ export function initSlider() {
 
         setTimeout(() => {
           sliderContainer.lastElementChild?.remove();
+          visible.style.overflowX = "visible";
           isAnimation = false;
         }, 500);
       });
@@ -37,6 +42,7 @@ export function initSlider() {
       right.addEventListener("click", () => {
         if (isAnimation) return;
         isAnimation = true;
+        visible.style.overflowX = "hidden";
 
         cardsToRender = createCardsToRender(pets, cardsToRender);
         renderCardsRight(cardsToRender);
@@ -47,6 +53,7 @@ export function initSlider() {
           sliderContainer.style.transition = "none";
           sliderContainer.firstElementChild?.remove();
           sliderContainer.style.transform = "translateX(0)";
+          visible.style.overflowX = "visible";
           isAnimation = false;
         }, 500);
       });
@@ -128,6 +135,7 @@ export function initSlider() {
 export function createCard(card) {
   const div = document.createElement("div");
   div.className = "slider__item card";
+  div.dataset.name = card.name;
 
   const img = document.createElement("img");
   img.className = "img";
@@ -140,6 +148,10 @@ export function createCard(card) {
   const button = document.createElement("button");
   button.className = "button button--width-187 button--bgc-transparent";
   button.textContent = "Learn More";
+
+  div.addEventListener("click", (event) => {
+    initModal(event.currentTarget);
+  });
 
   div.append(img, p, button);
 

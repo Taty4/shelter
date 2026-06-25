@@ -303,6 +303,38 @@ Image of a cute red puppy"
         </div>
       </div>
     </footer>
+    <dialog class="modal">
+      <button class="modal__btn-close circle-button">&#10006;</button>
+      <div class="modal-content">
+        <div class="modal-content__image"></div>
+        <div class="modal-content__wrapper-text">
+          <h3 class="modal-content__name"></h3>
+          <p class="modal-content__type">
+            <span class="modal-content__type--type"></span> -
+            <span class="modal-content__type--breed"></span>
+          </p>
+          <p class="modal-content__information"></p>
+          <ul class="modal-content__list">
+            <li class="modal-content__list-item">
+              <span class="bold-text">Age: </span>
+              <span data-info="age"></span>
+            </li>
+            <li class="modal-content__list-item">
+              <span class="bold-text">Inoculations: </span>
+              <span data-info="inoculations"></span>
+            </li>
+            <li class="modal-content__list-item">
+              <span class="bold-text">Diseases: </span>
+              <span data-info="diseases"></span>
+            </li>
+            <li class="modal-content__list-item">
+              <span class="bold-text">Parasites: </span>
+              <span data-info="parasites"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </dialog>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>
