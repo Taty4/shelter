@@ -50,6 +50,18 @@ export function initSlider() {
           isAnimation = false;
         }, 500);
       });
+
+      window.addEventListener("resize", () => {
+        const countNextCard = getCardPreview();
+
+        if (countCards === countNextCard) {
+          return;
+        }
+
+        countCards = countNextCard;
+        cardsToRender = pets.slice(0, countCards);
+        renderCardsStart(cardsToRender);
+      });
     } catch (error) {
       console.error("Error:", error);
     }
@@ -96,35 +108,6 @@ export function initSlider() {
     sliderContainer.append(cardContainer);
   }
 
-  function createCard(card) {
-    const div = document.createElement("div");
-    div.className = "slider__item card";
-
-    const img = document.createElement("img");
-    img.className = "img";
-    img.src = card.img;
-
-    const p = document.createElement("p");
-    p.className = "card__pet-name";
-    p.textContent = card.name;
-
-    const button = document.createElement("button");
-    button.className = "button button--width-187 button--bgc-transparent";
-    button.textContent = "Learn More";
-
-    div.append(img, p, button);
-
-    return div;
-  }
-
-  function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
   let countCards = getCardPreview();
 
   function getCardPreview() {
@@ -139,16 +122,34 @@ export function initSlider() {
     return 1;
   }
 
-  window.addEventListener("resize", () => {
-    const countNextCard = getCardPreview();
-
-    if (countCards === countNextCard) {
-      return;
-    }
-
-    countCards = countNextCard;
-    loadPets();
-  });
-
   loadPets();
+}
+
+export function createCard(card) {
+  const div = document.createElement("div");
+  div.className = "slider__item card";
+
+  const img = document.createElement("img");
+  img.className = "img";
+  img.src = card.img;
+
+  const p = document.createElement("p");
+  p.className = "card__pet-name";
+  p.textContent = card.name;
+
+  const button = document.createElement("button");
+  button.className = "button button--width-187 button--bgc-transparent";
+  button.textContent = "Learn More";
+
+  div.append(img, p, button);
+
+  return div;
+}
+
+export function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }

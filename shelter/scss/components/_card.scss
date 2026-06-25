@@ -12,6 +12,20 @@
   cursor: pointer;
   width: 270px;
   flex-shrink: 0;
+  opacity: 1;
+  transition:
+    opacity 0.2s,
+    transform 0.3s ease;
+
+  &.fade-out-next {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+
+  &.fade-out-prev {
+    transform: translateX(100px);
+    opacity: 0;
+  }
 
   .img {
     border-radius: 9px;

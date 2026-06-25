@@ -176,24 +176,12 @@
     &__part {
       gap: functions.fluid-value-df(1100, 768, 60, 30);
     }
-
-    /*   &__item:nth-child(3) {
-      display: none;
-    } */
   }
 
   @media (max-width: 768px) {
     &__part {
       gap: functions.fluid-value-df(768, 320, 40, 30);
     }
-  }
-
-  @media (max-width: 750px) {
-    /*    &__item {
-      &:nth-child(2) {
-        display: none;
-      }
-    } */
   }
 
   @media (max-width: 420px) {
