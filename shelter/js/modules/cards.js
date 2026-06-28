@@ -22,7 +22,8 @@ export function initCards() {
       const response = await fetch("./pets.json");
       const pets = await response.json();
 
-      const pets48 = createFullPets(pets);
+      const pets48 =
+        JSON.parse(localStorage.getItem("pets48")) || createFullPets(pets);
       renderCards(pets48);
 
       btnNext.addEventListener("click", () => {
@@ -162,7 +163,7 @@ export function initCards() {
   }
 
   function createFullPets(pets) {
-    const pets48 = [...shuffle(pets)];
+    const pets48 = [...pets];
     for (let i = 0; i < 5; i++) {
       let shuffled = shuffle(pets);
 
@@ -172,7 +173,7 @@ export function initCards() {
 
       pets48.push(...shuffled);
     }
-
+    localStorage.setItem("pets48", JSON.stringify(pets48));
     return pets48;
   }
 

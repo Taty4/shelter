@@ -88,7 +88,6 @@ export function initSlider() {
     const cardContainer = document.createElement("div");
     cardContainer.className = "slider__part";
     array.forEach((element) => {
-      console.log(element.name);
       const card = createCard(element);
       cardContainer.append(card);
     });
