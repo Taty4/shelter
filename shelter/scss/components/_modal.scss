@@ -1,0 +1,147 @@
+@use "../abstarct/functions";
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  max-width: functions.fluid-value-df(1280, 768, 900, 630);
+  width: 100%;
+  max-height: 90vh;
+
+  border: none;
+  border-radius: 9px;
+  overflow: visible;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::backdrop {
+    background-color: #29292999;
+  }
+
+  &__btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(60%, -100%);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    max-width: functions.fluid-value-df(768, 320, 630, 240);
+  }
+}
+
+.modal-content {
+  display: flex;
+  gap: functions.fluid-value-df(1280, 768, 30, 10);
+  justify-content: center;
+  background-color: var(--color-light-s);
+  border-radius: 9px;
+  overflow-y: auto;
+  max-height: 90vh;
+  padding-right: functions.fluid-value-df(1280, 768, 20, 10);
+
+  &__image {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  &__wrapper-text {
+    margin-top: functions.fluid-value-df(1280, 768, 50, 10);
+    max-width: functions.fluid-value-df(1280, 768, 350, 260);
+  }
+
+  &__name {
+    font-size: var(--fn-h2);
+    line-height: 130%;
+    letter-spacing: 6%;
+  }
+
+  &__type {
+    margin-top: 10px;
+    font-size: var(--fn-card);
+    line-height: 115%;
+    letter-spacing: 6%;
+  }
+
+  &__information {
+    margin-top: functions.fluid-value-df(1280, 768, 40, 20);
+    font-weight: 400;
+    line-height: 110%;
+    letter-spacing: 6%;
+  }
+
+  &__list {
+    margin-top: functions.fluid-value-df(1280, 768, 40, 20);
+    list-style-position: outside;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: functions.fluid-value-df(1280, 768, 11, 6);
+  }
+
+  &__list-item {
+    padding-left: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 110%;
+    letter-spacing: 6%;
+
+    &::marker {
+      color: var(--color-primary);
+    }
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  color: black;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    &__wrapper-text {
+      padding-bottom: 10px;
+    }
+
+    &__image {
+      align-self: center;
+    }
+  }
+
+  @media (max-width: 610px) {
+    padding-left: 10px;
+
+    &__name {
+      text-align: center;
+    }
+
+    &__image {
+      display: none;
+    }
+
+    &__type {
+      text-align: center;
+    }
+
+    &__information {
+      text-align: justify;
+    }
+  }
+}
+
+.bold-text {
+  font-weight: bold;
+}

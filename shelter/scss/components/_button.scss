@@ -1,0 +1,38 @@
+@use "../abstarct/mixins";
+
+.button {
+  white-space: nowrap;
+  max-width: 207px;
+  padding: 13px 43px;
+  background-color: var(--color-primary);
+  border-radius: 100px;
+  border: none;
+  color: var(--color-dark-xl);
+  text-decoration: none;
+  font-size: var(--fn-button);
+  border: 2px solid transparent;
+  font-family: "Georgia", sans-serif;
+  line-height: 130%;
+  letter-spacing: 6%;
+  transition: background-color 0.4s;
+
+  cursor: pointer;
+
+  &--width-261 {
+    max-width: 261px;
+  }
+
+  &--width-187 {
+    max-width: 187px;
+  }
+
+  &--bgc-transparent {
+    border-color: var(--color-primary);
+    background-color: transparent;
+  }
+
+  @include mixins.hover-desktop {
+    background-color: var(--color-light-hover);
+    border-color: var(--color-light-hover);
+  }
+}

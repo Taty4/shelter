@@ -1,0 +1,49 @@
+@use "../abstarct/mixins";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 29px;
+  padding-bottom: 30px;
+  border-radius: 9px;
+  background-color: var(--color-light-s);
+  transition: 0.3s;
+  cursor: pointer;
+  width: 270px;
+  flex-shrink: 0;
+  opacity: 1;
+  transition:
+    opacity 0.2s,
+    transform 0.3s ease;
+
+  &.fade-out-next {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+
+  &.fade-out-prev {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+
+  .img {
+    border-radius: 9px;
+  }
+
+  &__pet-name {
+    color: var(--color-dark-l);
+    font-size: var(--fn-card);
+    line-height: 24px;
+    letter-spacing: 6%;
+  }
+
+  @include mixins.hover-desktop {
+    box-shadow: 0px 0px 15px 1px rgba(33, 59, 78, 0.158);
+
+    .button {
+      background-color: var(--color-light-hover);
+      border-color: var(--color-light-hover);
+    }
+  }
+}

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Pets</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="./favicon-32x32.png?v=4"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./favicon-16x16.png?v=4"
+      sizes="16x16"
+    />
+
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <header class="header__content u-content-width">
+      <a class="header__logo" href="./index.html">
+        <p class="header__logo-title header__logo-title--dark">Cozy House</p>
+        <p class="header__logo-subtitle header__logo-subtitle--dark">
+          Shelter for pets in Boston
+        </p>
+      </a>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li class="header__nav-item header__nav-item--dark">
+            <a
+              href="./index.html"
+              class="header__nav-link header__nav-link--dark"
+              >About the shelter</a
+            >
+          </li>
+          <li class="header__nav-item header__nav-item--dark is-active">
+            <a
+              href="./pets.html"
+              class="header__nav-link header__nav-link--dark"
+              >Our pets</a
+            >
+          </li>
+          <li class="header__nav-item header__nav-item--dark">
+            <a
+              href="./index.html#help"
+              class="header__nav-link header__nav-link--dark"
+              >Help the shelter</a
+            >
+          </li>
+          <li class="header__nav-item header__nav-item--dark">
+            <a href="#footer" class="header__nav-link header__nav-link--dark"
+              >Contacts</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="burger burger--black">
+        <span class="burger__line"></span>
+      </div>
+    </header>
+
+    <main class="u-bgc-section">
+      <div class="main-pets u-section-padding u-content-width">
+        <h1 class="main-pets__title u-section-title u-section-title--center">
+          Our friends who <br />
+          are looking for a house
+        </h1>
+        <div class="main-pets__cards-wrapper"></div>
+        <div class="main-pets__pagination">
+          <button class="circle-button first" disabled>&lt;&lt;</button>
+          <button class="circle-button prev" disabled>&lt;</button>
+          <button class="circle-button counter is-active">1</button>
+          <button class="circle-button next">&gt;</button>
+          <button class="circle-button last">&gt;&gt;</button>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <div class="footer__content u-content-width">
+        <div class="footer__block">
+          <h2 class="footer__title footer__title--margin-42 u-section-title">
+            For questions and suggestions
+          </h2>
+          <div class="footer__item footer__item--margin-bottom-43">
+            <img class="img icon" src="./assets/img/mail.png" alt="" />
+            <a class="footer__link" href="mailto:example@domain.com"
+              >email@shelter.com</a
+            >
+          </div>
+          <div class="footer__item">
+            <img class="img icon" src="./assets/img/phone.png" alt="" />
+            <a class="footer__link" href="tel:+136745677554"
+              >+13 674 567 75 54</a
+            >
+          </div>
+        </div>
+        <div class="footer__block">
+          <h2 class="footer__title footer__title--margin-34 u-section-title">
+            We are waiting for your visit
+          </h2>
+          <div class="footer__item footer__item--margin-bottom-32">
+            <img class="icon" src="./assets/img/pin.png" alt="" />
+            <a
+              class="footer__link"
+              target="_blank"
+              href="https://www.google.com/maps/place/London,+UK/@51.5022575,-0.1047878,18.5z/data=!4m6!3m5!1s0x47d8a00baf21de75:0x52963a5addd52a99!8m2!3d51.5072178!4d-0.1275862!16zL20vMDRqcGw?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D"
+              >1 Central Street, Boston (entrance from the store)</a
+            >
+          </div>
+          <div class="footer__item">
+            <img class="icon" src="./assets/img/pin.png" alt="" />
+            <a
+              class="footer__link"
+              href="https://www.google.com/maps/place/London,+UK/@51.5022575,-0.1047878,18.5z/data=!4m6!3m5!1s0x47d8a00baf21de75:0x52963a5addd52a99!8m2!3d51.5072178!4d-0.1275862!16zL20vMDRqcGw?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D"
+              >18 South Park, London
+            </a>
+          </div>
+        </div>
+        <div class="footer-img">
+          <img class="img" src="./assets/img/footer-puppy.webp" alt="" />
+        </div>
+      </div>
+    </footer>
+    <dialog class="modal">
+      <button class="modal__btn-close circle-button">&#10006;</button>
+      <div class="modal-content">
+        <div class="modal-content__image"></div>
+        <div class="modal-content__wrapper-text">
+          <h3 class="modal-content__name"></h3>
+          <p class="modal-content__type">
+            <span class="modal-content__type--type"></span> -
+            <span class="modal-content__type--breed"></span>
+          </p>
+          <p class="modal-content__information"></p>
+          <ul class="modal-content__list">
+            <li class="modal-content__list-item">
+              <span class="bold-text">Age: </span>
+              <span data-info="age"></span>
+            </li>
+            <li class="modal-content__list-item">
+              <span class="bold-text">Inoculations: </span>
+              <span data-info="inoculations"></span>
+            </li>
+            <li class="modal-content__list-item">
+              <span class="bold-text">Diseases: </span>
+              <span data-info="diseases"></span>
+            </li>
+            <li class="modal-content__list-item">
+              <span class="bold-text">Parasites: </span>
+              <span data-info="parasites"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </dialog>
+    <script type="module" src="./js/pets.js"></script>
+  </body>
+</html>
